@@ -16,8 +16,8 @@
 
 import requests
 
-CORPSECRET	 = "9QHrT1ejb2hLA9TKI3TFHpBQrhqZImX-qEsnhyjRDOuXAHxapkNBn61F725NjpGs"
-CORPID	  	 = "dingc5cc1be25c58c8da"
+CORPSECRET	 = "**"
+CORPID	  	 = "**"
 ACCESS_TOKEN = ""
 
 res=requests.get("https://oapi.dingtalk.com/gettoken",params={"corpid":CORPID,"corpsecret":CORPSECRET})

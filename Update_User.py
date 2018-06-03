@@ -18,7 +18,7 @@
 import requests
 import json
 
-ACCESS_TOKEN="93212374362f3f6baf6605157ab51712"
+ACCESS_TOKEN="**"
 
 headers = {'Content-Type': 'application/json'}
 res=requests.post("https://oapi.dingtalk.com/user/update?access_token=%s" % ACCESS_TOKEN,

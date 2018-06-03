@@ -16,7 +16,7 @@
 
 import requests
 
-ACCESS_TOKEN="93212374362f3f6baf6605157ab51712"
+ACCESS_TOKEN="***"
 
 res=requests.get("https://oapi.dingtalk.com/department/list_parent_depts",params={"access_token":ACCESS_TOKEN,"userId":"119249"})
 

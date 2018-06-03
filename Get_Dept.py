@@ -16,7 +16,7 @@
 
 import requests
 
-ACCESS_TOKEN="1716e17b0d503552b337f74965fc8f3a"
+ACCESS_TOKEN="xx"
 
 res=requests.get("https://oapi.dingtalk.com/department/list",params={"access_token":ACCESS_TOKEN,"fetch_child":"true"})
 print res.text
