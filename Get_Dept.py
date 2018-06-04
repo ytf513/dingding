@@ -15,8 +15,9 @@
 """
 
 import requests
+from config import KeyConfig
 
-ACCESS_TOKEN="xx"
+ACCESS_TOKEN=KeyConfig.
 
 res=requests.get("https://oapi.dingtalk.com/department/list",params={"access_token":ACCESS_TOKEN,"fetch_child":"true"})
 print res.text
