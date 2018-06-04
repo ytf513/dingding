@@ -8,14 +8,16 @@
 
 @Email : "ytf513@foxmail.com"
 
-@FileName:{GetAccess}.py
+@FileName:{Token}.py
 
-@Description :获取钉钉授权
+@Description :获取钉钉授权Token,该文件包含重要信息：CorpSecret，防止泄漏
 
 """
 
 import requests
-from config import KeyConfig
+
+CORPSECRET	 = "9QHrT1ejb2hLA9TKI3TFHpBQrhqZImX-qEsnhyjRDOuXAHxapkNBn61F725NjpGs"
+CORPID	  	 = "dingc5cc1be25c58c8da"
 
 def Get_Access_Token():
 	'''调用钉钉接口，获取Token
@@ -31,7 +33,7 @@ def Get_Access_Token():
 	:return:Access_Token or Error
 	'''
 
-	res=requests.get("https://oapi.dingtalk.com/gettoken",params={"corpid":KeyConfig.CORPID,"corpsecret":KeyConfig.CORPSECRET})
+	res=requests.get("https://oapi.dingtalk.com/gettoken",params={"corpid":CORPID,"corpsecret":CORPSECRET})
 	res_json=res.json()
 	error_code=res_json.get("errcode")
 

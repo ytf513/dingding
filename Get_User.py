@@ -15,11 +15,11 @@
 """
 
 import requests
+from config import Token
 
-ACCESS_TOKEN="***"
+ACCESS_TOKEN=Token.Get_Access_Token()
 
-res=requests.get("https://oapi.dingtalk.com/department/list_parent_depts",params={"access_token":ACCESS_TOKEN,"userId":"119249"})
+#获得部门下的员工，不包含子部门的员工
+res=requests.get("https://oapi.dingtalk.com/user/simplelist",params={"access_token":ACCESS_TOKEN,"department_id":"66462421"})
 
 print res.text
-#res=requests.get("https://oapi.dingtalk.com/user/get_org_user_count?access_token=%s&onlyActive=%s" % (ACCESS_TOKEN,"1"))
-#print res.text
