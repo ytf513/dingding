@@ -16,8 +16,8 @@
 
 import requests
 
-CORPSECRET	 = "*"
-CORPID	  	 = "*"
+CORPSECRET	 = "9QHrT1ejb2hLA9TKI3TFHpBQrhqZImX-qEsnhyjRDOuXAHxapkNBn61F725NjpGs"
+CORPID	  	 = "dingc5cc1be25c58c8da"
 
 def Get_Access_Token():
 	'''调用钉钉接口，获取Token
@@ -39,7 +39,7 @@ def Get_Access_Token():
 
 	if error_code != 0:
 		print res_json.get("errmsg")
-		return "ERROR"
+		return None
 	else:
 		return res_json.get("access_token")
 

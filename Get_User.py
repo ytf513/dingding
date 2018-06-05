@@ -10,7 +10,7 @@
 
 @FileName:{Get_User}.py
 
-@Description :
+@Description :获得该部门的员工
 
 """
 
@@ -21,5 +21,7 @@ ACCESS_TOKEN=Token.Get_Access_Token()
 
 #获得部门下的员工，不包含子部门的员工
 res=requests.get("https://oapi.dingtalk.com/user/simplelist",params={"access_token":ACCESS_TOKEN,"department_id":"66462421"})
-
-print res.text
+res = res.json()
+userlist = res.get("userlist")
+for x in userlist:
+	print x.get("userid"),x.get("name")
