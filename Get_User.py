@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+#-*- coding:utf-8 -*-
 
 """
 
@@ -16,12 +16,36 @@
 
 import requests
 from config import Token
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 ACCESS_TOKEN=Token.Get_Access_Token()
 
+'''
+	https://oapi.dingtalk.com/user/simplelist,返回参数
+	{
+    "errcode": 0,
+    "errmsg": "ok",
+    "hasMore": false,
+    "userlist": [
+        {
+            "userid": "zhangsan",
+            "name": "张三"
+        }
+    ]
+	} 
+	'''
+
 #获得部门下的员工，不包含子部门的员工
-res=requests.get("https://oapi.dingtalk.com/user/simplelist",params={"access_token":ACCESS_TOKEN,"department_id":"66462421"})
+res=requests.get("https://oapi.dingtalk.com/user/simplelist",params={"access_token":ACCESS_TOKEN,"department_id":"664624211"})
 res = res.json()
-userlist = res.get("userlist")
-for x in userlist:
-	print x.get("userid"),x.get("name")
+errcode=res.get("errcode")
+
+if errcode == 0:
+	print "获取信息：%s" % res.get("errmsg")
+	userlist = res.get("userlist")
+	for x in userlist:
+		print x.get("userid"),x.get("name")
+else:
+	print res.get("errcode"),res.get("errmsg")
