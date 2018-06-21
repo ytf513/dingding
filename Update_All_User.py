@@ -99,11 +99,11 @@ def update_user(user_id,user_name):
 						json={'userid': user_id, "isHide": "false"})
 	res=res.json()
 	err_code=res.get("errcode")
-	if err_code == "0":
+	if err_code == 0:
+		return "Success"
+	else:
 		print res.get("errmsg")
 		return "Error"
-	else:
-		return "Success"
 
 
 if __name__ == "__main__":
